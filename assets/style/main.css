@@ -1,0 +1,172 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+::selection {
+    background-color: var(--color-primary-100);
+    color: #eaf6f5;
+}
+
+:root {
+
+    /* Animaties */
+    --a-quick: 0.2s;
+    --a-default: 0.3s;
+    --a-medium: 0.6s;
+    --a-large: 1s;
+
+    /* Kleuren */
+    --color-default: #ffffff;
+    --color-invert: #002553;
+    --color-primary-100: #307fe2;
+    --color-primary-80: #6aabf9;
+    --color-primary-60: #94c3fb;
+    --color-primary-40: #b1d0f6;
+    --color-primary-20: #e9f2fe;
+
+    --color-secundary-100: #F94646;
+
+    /* Kleurverloop */
+    --gradient-default: var(--color-primary-40), var(--color-default);
+    --gradient-heading: var(--color-primary-80), var(--color-primary-100);
+
+    /* Eenheden */
+    --u-nano: 0.125em;
+    --u-micro: 0.25em;
+    --u-medium: 0.5em;
+    --u-default: 1em;
+    --u-large: 2em;
+    --u-round: 50%;
+
+    /* Schaduwen en effecten */
+    --shadow-default: 0px 1px var(--u-micro) rgba(0, 0, 0, 0.1), 0px var(--u-micro) var(--u-micro) -2px rgba(0, 0, 0, 0.12), 0px 10px 12px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* Lettertypes */
+@font-face {
+    font-family: "Gloock", serif;
+    src: url("assets/fonts/Gloock-Regular.ttf");
+}
+
+@font-face {
+    font-family: "League Spartan", sans-serif;
+    src: url("LeagueSpartan-Light.ttf");
+    font-weight: 300;
+}
+
+
+body {
+    width: 100%;
+    background-image: linear-gradient(-45deg, var(--gradient-default));
+    background-repeat: no-repeat;
+}
+
+/* Typografie */
+
+h1, h2 {
+    width: fit-content;
+    max-width: 30em;
+}
+
+h1 {
+    font-family: "Gloock", serif;
+    font-size: 3em;
+    background: -webkit-linear-gradient(var(--gradient-heading));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+}
+
+h1::before {
+    content: '';
+    width: 4em;
+    aspect-ratio: 1/1;
+    background-color: var(--color-primary-40);
+    display: block;
+    position: absolute;
+    top: -1.5em;
+    left: -2em;
+    z-index: -1;
+    opacity: 0.66;
+}
+
+h2 {
+    font-family: "League Spartan", sans-serif;
+    font-weight: 400;
+    color: var(--color-invert);
+}
+
+p {
+    font-family: "League Spartan";
+    color: var(--color-invert);
+}
+
+/* layout */
+
+main {
+    width: 100%;
+    height: auto;
+    padding: var(--u-default);
+}
+
+section {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+section div {
+    margin: 5em auto;
+}
+
+article {
+    width: 75vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1em;
+    margin: 0 auto;
+}
+
+.project-item {
+    list-style: none;
+    grid-area: 'content';
+}
+
+/* afbeeldingen */
+
+img {
+    width: 100%;
+}
+
+/* interactief */
+
+a {
+    text-decoration: none;
+    padding: var(--u-medium);
+    transition: var(--a-default);
+    border: 2px solid #00255300;
+}
+
+a img {
+    transition: var(--a-quick);
+}
+
+a:hover img {
+    transform: translateY(-1em);
+}
+
+a:focus-visible {
+    outline: none;
+}
+
+a:focus {
+    border: 2px solid var(--color-primary-100)
+}
+
+@media (min-width: 30em) {
+    article {
+        width: 66%;
+        grid-template-columns: 1fr 1fr;
+    }
+}
