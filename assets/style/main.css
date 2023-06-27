@@ -4,11 +4,6 @@
     padding: 0;
 }
 
-::selection {
-    background-color: var(--color-primary-100);
-    color: #eaf6f5;
-}
-
 :root {
 
     /* Animaties */
@@ -59,8 +54,10 @@
 
 body {
     width: 100%;
+    height: 100vh;
     background-image: linear-gradient(-45deg, var(--gradient-default));
     background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 /* Typografie */
@@ -86,14 +83,14 @@ h1::before {
     background-color: var(--color-primary-40);
     display: block;
     position: absolute;
-    top: -1.5em;
+    top: -1.25em;
     left: -2em;
     z-index: -1;
     opacity: 0.66;
 }
 
 h2 {
-    font-family: "League Spartan", sans-serif;
+    font-family: "Gloock", sans-serif;
     font-weight: 400;
     color: var(--color-invert);
 }
@@ -101,6 +98,33 @@ h2 {
 p {
     font-family: "League Spartan";
     color: var(--color-invert);
+    padding: var(--u-default) 0 0 var(--u-default);
+}
+
+.heading-custom-style {
+    background: -webkit-linear-gradient(var(--gradient-heading));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.project-item div {
+    width: 80%;
+    background-color: var(--color-default);
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: var(--u-default);
+    margin: 0 auto;
+    padding: var(--u-medium);
+    border-radius: var(--u-micro);
+}
+
+.project-item div div {
+    display: block;
+}
+
+.project-item div img {
+    width: 6em;
 }
 
 /* layout */
@@ -128,9 +152,25 @@ article {
     margin: 0 auto;
 }
 
-.project-item {
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 4em var(--u-large);
+}
+
+footer ul {
+    display: flex;
+    gap: var(--u-default)
+}
+
+li {
     list-style: none;
-    grid-area: 'content';
+}
+
+footer a {
+    display: flex;
+    align-items: center;
+    gap: var(--u-medium)
 }
 
 /* afbeeldingen */
@@ -146,6 +186,8 @@ a {
     padding: var(--u-medium);
     transition: var(--a-default);
     border: 2px solid #00255300;
+    font-family: "League Spartan";
+    color: var(--color-invert);
 }
 
 a img {
@@ -154,6 +196,10 @@ a img {
 
 a:hover img {
     transform: translateY(-1em);
+}
+
+a:hover .qr-code {
+    transform: translateY(0em);
 }
 
 a:focus-visible {
@@ -166,7 +212,6 @@ a:focus {
 
 @media (min-width: 30em) {
     article {
-        width: 66%;
         grid-template-columns: 1fr 1fr;
     }
 }
